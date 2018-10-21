@@ -96,7 +96,7 @@ user-select: none;
     right: 10%;
 }
 
-@media(max-width: 400px) {
+@media(max-width: 435px) {
     #firstScreen>h1{
         font-size: 30px;
     }
