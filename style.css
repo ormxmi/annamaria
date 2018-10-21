@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
 *{
     margin: 0;;
     padding: 0;
@@ -46,8 +48,8 @@ body{
 }
 #counter{
     position: absolute;
-    font-family: monospace;
-    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     font-size: 55px;
    bottom: 2%;
    right: 2%;
