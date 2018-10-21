@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
 
     <link rel="stylesheet" href="style.css">
    
@@ -13,25 +15,30 @@
     <div id="firstScreen" onclick="hideFirstScreen()">
         <h1>art show-off :))</h1>
     </div>
-    <div class="showOff" onclick="showImg()">
+    <div class="showOff">
+        <div class="halfDiv halfDivLeft" onclick="showImg('lastImg')"> <i class="fas fa-angle-left arrows arrow-left"></i></div>
+        <div class="halfDiv halfDivRight" onclick="showImg()"> <i class="fas fa-angle-right arrows arrow-right"></i></div> 
         <div class="imgContainer center">
             <div id="test">
-        <img src="drawings/1.jpg" alt="" class="images">
-        <img src="drawings/2.jpg" alt="" class="images">
-        <img src="drawings/3.jpg" alt="" class="images">
-        <img src="drawings/4.jpg" alt="" class="images">
-        <img src="drawings/6.jpg" alt="" class="images">
-        <img src="drawings/7.jpg" alt="" class="images">
-        <img src="drawings/8.jpg" alt="" class="images">
-        <img src="drawings/9.jpg" alt="" class="images">
-        <img src="drawings/10.jpg" alt="" class="images">
-    </div>
+                <img src="drawings/1.jpg" alt="" class="images">
+                <img src="drawings/2.jpg" alt="" class="images">
+                <img src="drawings/3.jpg" alt="" class="images">
+                <img src="drawings/4.jpg" alt="" class="images">
+                <img src="drawings/5.jpg" alt="" class="images">
+                <img src="drawings/6.jpg" alt="" class="images">
+                <img src="drawings/7.jpg" alt="" class="images">
+                <img src="drawings/8.jpg" alt="" class="images">
+                <img src="drawings/9.jpg" alt="" class="images">
+            </div>
         </div>
+
+        <p id="counter"><span id="counterSpan">1</span>/9</p>
     </div>
     <ul id="info">
-        <li class="listItem">about m<span style="text-decoration: underline">e<span></li>
+        <li class="listItem">about m<span style="text-decoration: underline" id="blinking">e<span></li>
         <li class="listItem"><span style="text-decoration: underline">c</span>ontact</li>
     </ul>
+    
     <script src="main.js"></script>
 </body>
 </html>

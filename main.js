@@ -5,30 +5,45 @@ function hideFirstScreen(){
     alreadyHiden = true;
     showImg();
 }
-var position = [['10%','5%'],['10%','5%'],['10%','5%'],['10%','5%']]
 var images = document.getElementsByClassName("images");
-var i = 0;
-function showImg(){
-    if(i==images.length) //hides the last image if it goes back to the first
-    {
-        images[images.length-1].style.display = "none";
-        i=0;
+var i = -1;
+var counterSpan = document.getElementById("counterSpan");
+function showImg(e){
+    if(e==="lastImg"){
+        if(i==0){
+            images[i].style.display = "none";
+            i=images.length-1;
+            images[i].style.display = "block";
+            counterSpan.innerHTML = i+1;
+        }else{
+        images[i].style.display = "none";
+        i--;
+        images[i].style.display = "block";
+        counterSpan.innerHTML = i+1;
+        }
     }
-    images[i].style.display = "block"; //make the next image appear
-    
-    if(i>=1)images[i-1].style.display = "none"; //hides the last image
-    i++;
-    
+    else{
+        i++;
+        if(i==images.length) //hides the last image if it goes back to the first
+        {
+            images[images.length-1].style.display = "none";
+            i=0;
+        }
+        images[i].style.display = "block"; //make the next image appear
+        counterSpan.innerHTML = i+1;
+        if(i>=1)images[i-1].style.display = "none"; //hides the last image
+        
+    }
 }
 var underlined = true;
 setInterval(
     function(){
         if(underlined){
-        document.getElementsByTagName("SPAN")[0].style.textDecoration = "none";
+        document.getElementById("blinking").style.textDecoration = "none";
         underlined = false;
     }
     else{
-        document.getElementsByTagName("SPAN")[0].style.textDecoration = "underline";
+        document.getElementById("blinking").style.textDecoration = "underline";
         underlined = true;
     }
     },700

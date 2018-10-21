@@ -44,6 +44,14 @@ body{
     left: 15%;
     list-style-type:none;
 }
+#counter{
+    position: absolute;
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 55px;
+   bottom: 2%;
+   right: 2%;
+}
 #info>li{
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
@@ -58,6 +66,33 @@ body{
 #info>li:active{
     cursor: pointer;
     border:1px solid black;
+}
+.halfDiv{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+}
+.halfDivLeft{
+    left: 0;
+}
+.halfDivRight{
+    right: 0;
+}
+.arrows{
+    
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    font-size: 80px;
+    position: absolute;
+    top:50%;
+    transform: translateX(-50%);
+}
+.arrow-left{
+    left: 15%;
+}
+.arrow-right{
+    left: 85%;
 }
 .images{
   
@@ -108,6 +143,10 @@ user-select: none;
         top: 90%;
      
     }
+    #counter{
+        font-size: 45px;
+       
+    }
     
 }
 @media(max-width: 1150px) {
@@ -115,5 +154,8 @@ user-select: none;
        
         left: 5%;
       
+    }
+    .arrows{
+        display: none;
     }
 }
