@@ -96,7 +96,7 @@ user-select: none;
     right: 10%;
 }
 
-@media only screen and (max-width: 350px) {
+@media(max-width: 400px) {
     #firstScreen>h1{
         font-size: 30px;
     }
@@ -110,7 +110,7 @@ user-select: none;
     }
     
 }
-@media only screen and (max-width: 1150px) {
+@media(max-width: 1150px) {
     #info{
        
         left: 5%;
