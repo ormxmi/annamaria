@@ -427,6 +427,8 @@ html, body {
   opacity: 0;
   -webkit-animation: 1s fadeIn forwards;
           animation: 1s fadeIn forwards;
+  -webkit-animation-delay: 5.8s;
+          animation-delay: 5.8s;
 }
 
 .content-wrapper .images-sections .section {
