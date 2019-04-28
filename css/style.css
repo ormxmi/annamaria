@@ -23,7 +23,8 @@ html, body {
 
 @media (max-width: 480px) {
   body {
-    overflow: auto;
+    -webkit-animation: 0s enableScroll 5.6s forwards;
+            animation: 0s enableScroll 5.6s forwards;
   }
 }
 
@@ -1163,6 +1164,24 @@ html, body {
   100% {
     fill: #91B6D0;
     background-color: #91B6D0;
+  }
+}
+
+@-webkit-keyframes enableScroll {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: auto;
+  }
+}
+
+@keyframes enableScroll {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
