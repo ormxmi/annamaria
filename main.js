@@ -1,95 +1,67 @@
-var alreadyHiden = false;
-setTimeout(function(){if(!alreadyHiden)hideFirstScreen() }, 5000);
-
-function hideFirstScreen(){
-    document.getElementById("firstScreen").style.display = "none";
-    alreadyHiden = true;
+let loadingDivs = document.getElementsByClassName("loading-div");
+setTimeout(()=>{
+    loadingDivs[0].outerHTML = "";
+    loadingDivs[0].outerHTML = "";
+},5800)
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+        console.log("down")
+   } else {
+        console.log("up")
+   }
+   lastScrollTop = st;
+});
+let imagesSections = $('.images-sections');
+let lastDistanceY = 0;
+imagesSections.on('touchmove', function(event) {
     
-}
-
-var images = document.getElementsByClassName("images");
-var i = -1;
-var counterSpan = document.getElementById("counterSpan");
-
-var underlined = true;
-setInterval(
-    function(){
-        if(underlined){
-        document.getElementById("blinking").style.textDecoration = "none";
-        underlined = false;
+    var distanceY = imagesSections.offset().top;
+    if (distanceY > lastDistanceY){
+        $('.nav-container').css("transform","");
+    } else if(distanceY < lastDistanceY) {
+        $('.nav-container').css("transform","translateY(-100%)");
     }
-    else{
-        document.getElementById("blinking").style.textDecoration = "underline";
-        underlined = true;
-    }
-    },700
-)
-var finishedLastCall = true;
-function showImg(e){
-if(finishedLastCall){    
-    finishedLastCall = false;
-    if(e=='lastImg'){
-        if(i==-1){
-            i++;
-            images[i].style.transition = "0.6s ease-in-out";
-            images[i].setAttribute("class","images hidden-right");
-            i=images.length-2;
-            console.log(i);
-            images[i+1].style.transition = "0.0s";
-            images[i+1].setAttribute("class","images hidden-left");
-            setTimeout(function(){
-            images[i+1].style.transition = "0.6s ease-in-out";
-            images[i+1].setAttribute("class","images shown");
-            counterSpan.innerHTML = i+2;
-            images[i].style.transition = "0s";
-            images[i].setAttribute("class","images hidden-left");
-            },1)
-        }else{
-            images[i+1].style.transition = "0.6s ease-in-out";
-            images[i+1].setAttribute("class","images hidden-right");
-            setTimeout(function(){
-            images[i].style.transition = "0s";
-            images[i].setAttribute("class","images hidden-left");
-            },1);
-            images[i].style.transition = "0.6s ease-in-out";
-            images[i].setAttribute("class","images shown");
-            counterSpan.innerHTML = i+1;
-            i--;
+    lastDistanceY = distanceY;
+});
+let width = window.innerWidth;
+let contentBackground = $('.content-background')[0];
+let contentCarousel = $('.content-images')[0];
+let transformYBackground = 0;
+let transformYCarousel = 0;
+let notTransforming = true;
+let timeOut;
+let imagesTransform = [0,0,0,0,0,0,0,0,0];
+let carouselHeight = contentCarousel.clientHeight;
+let windowHeight = window.innerHeight;
+$(document).ready(function(){
+    $('body').bind('mousewheel DOMMouseScroll', function(e){
+        if(e.originalEvent.wheelDelta > 0) {
+            if(transformYBackground <= -25) transformYBackground+=25;
+            if(transformYCarousel <= -50) transformYCarousel+=50;
         }
-    }
-    else{       
-        i++;
-        if(i==8){                      
-            images[i].style.transition= "0.6s ease-in-out";
-            images[i].setAttribute("class","images hidden-left");
-            i=-1;
-            images[i+1].style.transition= "0.6s ease-in-out";
-            images[i+1].setAttribute("class","images shown");  
-            counterSpan.innerHTML = i+2;         
-        }else{
-            images[i].style.transition= "0.6s ease-in-out";
-            images[i].setAttribute("class","images hidden-left");      
-            images[i+1].style.transition= "0.6s ease-in-out";
-            images[i+1].setAttribute("class","images shown");
-            counterSpan.innerHTML = i+2;
+        else{
+            if( Math.abs(transformYCarousel) <= carouselHeight - windowHeight + 55 ){
+                transformYBackground-=25;
+                transformYCarousel-=50;
+            }
+            
         }
-        if(i==1){
-            images[images.length-1].style.transition = "0s";
-            images[images.length-1].setAttribute("class","images hidden-right");
-        }
-        if(i==7){
-            setTimeout(function(){
-                for(let i = 0;i<images.length-1;i++){
-                images[i].style.transition = "0s";
-                images[i].setAttribute("class","images hidden-right");
-                }
-            },600)
+        if(notTransforming){
+            clearTimeout(timeOut);
+            notTransforming = false;
+            contentBackground.style.transform = "translateY("+transformYBackground+"px)";
+            contentCarousel.style.transform = "translate(-50%, "+transformYCarousel+"px)";
+            timeOut =  setTimeout(()=>{
+                notTransforming = true;
+            },1400)
         }
        
-    }
-    setTimeout(function(){
-        finishedLastCall = true;
-    },600)
-    }
-    
-}
+    });
+});
+setInterval(()=>{
+    contentBackground.style.transform = "translateY("+transformYBackground+"px)";
+    contentCarousel.style.transform = "translate(-50%, "+transformYCarousel+"px)";
+},170)
+var lastScrollTop = 0;
+
