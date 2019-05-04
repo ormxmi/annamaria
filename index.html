@@ -13,21 +13,21 @@
 </head>
 <body>
     <div class="content-wrapper">
-  <!--
-       <div class="loading-div loading-div-2"></div>
+ 
+       <div class="loading-div-2"></div>
         <div class="loading-div">
             <div class="signature-container">
                 <div class="signature-inner">
                     <span>ARTWORK</span>
                 </div>
-                <div class="signature-image">
+                <div class="signature-image-load">
                     <svg viewBox="0 0 800 450" version="1.1" xmlns="http://www.w3.org/2000/svg">
                         <use class="logo-container" href="#000000ff"></use>
                     </svg>  
                 </div>
             </div>
         </div>
-     -->
+    
      <div class="nav-container">
         <div class="menu-selection" id="js-menu-nav">
             <div class="div-padding div-padding-selection">
@@ -95,26 +95,67 @@
         <div class="content-container">
 
             <div class="content-menu-desktop">
-                <div id="js-menu-desktop-inner">
+                <div  class="content-menu-desktop-inner-container" id="js-menu-desktop-inner">
                     <div class="content-menu-desktop-left-inner">
-                        <div>
+                        <div class="menu-dekstop-button-outer">
                             <div></div>
-                            <p>about</p>
+                            <p class="hover-pinker" data-text="about">about</p>
                         </div>
                     </div>
                     <span></span>
                     <div class="content-menu-desktop-right-inner">
-                        <div>
+                        <div class="menu-dekstop-button-outer">
                             <div></div>
-                            <p>contact</p>
+                            <p class="hover-pinker" data-text="contact">contact</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="content-menu-about-outer">
+                    <div class="content-menu-inner">
+                        <div class="return-menu-outer"></div>
+                        <div class="about-info-container">
+                            <p>Anna, 17yo<br>graphic designer<br>since 2017 :))</p>
+                            <div class="content-menu-contact-outer-gif-2"></div>
+                        </div>
+                        <div class="about-info-container about-info-container-2">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem eaque sunt atque laboriosam, quia voluptas dolore sed porro ut reprehenderit asperiores cumque, exercitationem labore amet, eum doloribus expedita molestiae. Minus doloremque facere vel commodi nihil vitae, amet quidem placeat illum beatae! Incidunt laborum officia libero.</p>
+                        </div>
+                        <span class="border-bottom-triangle-desktop">
+                                <span></span>
+                                <span></span>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="content-menu-contact-outer">
+                    <div class="content-menu-inner">
+                        <div class="return-menu-outer return-menu-outer-2"></div>
+
+                        <div class="contact-info-container">
+                            <p>Feel free to send me an email: </p>
+                            <p><a href="mailto:a2na@gmail.com">a5nnnnna@gmail.com</a></p>
+                        </div>
+
+                        <div class="contact-info-container contact-info-container-2">
+                            <p>or direct message me in</p>
+                            <p><a href="https://www.instagram.com/_.an2a/" target="_blank" >instagram</a></p>
+                        </div>
+                        <div class="content-menu-contact-outer-gif"></div>
+                        <span class="border-bottom-triangle-desktop">
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <p class="credits">Site created by <a href="https://ormxmi.github.io" target="_blank">Nikola Ormanliev</a>.</p>
+
+                </div>
+
             </div>
 
             <div class="signature-image">
                 <svg viewBox="0 0 800 450" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <g id="000000ff">
+                    <g id="g-path-js">
                         <path fill="#000000" opacity="1.00" d=" M 499.77 64.17 C 531.82 57.34 564.74 56.11 597.40 55.71 C 598.19 58.77 599.02 61.82 599.87 64.87 C 587.90 64.36 575.97 65.71 564.01 65.72 C 545.92 66.65 527.85 68.38 509.99 71.37 C 506.04 70.08 503.08 66.65 499.77 64.17 Z" />
                         <path fill="#000000" opacity="1.00" d=" M 232.17 64.11 C 233.61 60.29 238.03 57.18 242.12 58.98 C 248.89 61.84 255.49 66.47 258.49 73.41 C 262.25 81.46 263.49 90.35 265.24 98.99 C 273.28 143.06 274.81 187.94 277.71 232.55 C 286.62 231.54 295.59 231.16 304.56 231.20 C 305.23 234.64 305.66 238.13 305.77 241.64 C 296.72 239.38 287.38 240.97 278.24 241.72 C 278.63 254.52 280.21 267.24 280.81 280.03 C 281.55 287.69 281.60 295.39 282.36 303.05 C 283.06 321.58 287.73 339.64 289.62 358.04 C 286.14 353.70 279.72 351.22 279.15 345.07 C 276.78 334.13 274.78 323.09 273.74 311.94 C 272.36 292.80 271.44 273.63 269.74 254.51 C 269.41 250.72 269.26 246.91 269.16 243.11 C 257.16 244.42 245.21 246.22 233.31 248.19 C 231.92 267.77 231.03 287.39 230.18 307.00 C 229.00 318.65 229.88 330.38 229.66 342.06 C 226.81 338.54 222.25 335.82 221.75 330.92 C 220.38 322.69 220.49 314.30 221.10 306.00 C 221.62 287.19 223.07 268.43 223.80 249.63 C 215.91 250.82 207.97 252.03 200.01 252.57 C 196.67 252.85 195.25 249.19 195.32 246.42 C 196.77 245.38 198.01 243.77 199.90 243.57 C 208.07 242.36 216.32 241.73 224.45 240.27 C 226.72 207.53 228.48 174.76 230.26 142.00 C 230.37 120.61 231.08 99.24 231.62 77.86 C 231.49 73.30 230.50 68.50 232.17 64.11 M 243.56 71.46 C 241.37 74.09 240.94 77.66 240.69 80.95 C 240.29 89.62 240.46 98.31 239.95 106.97 C 239.42 122.30 240.02 137.66 238.77 152.96 C 237.61 181.55 235.29 210.09 234.07 238.68 C 245.55 236.92 257.08 235.49 268.53 233.58 C 267.82 218.53 266.66 203.49 265.99 188.43 C 265.87 190.61 265.67 192.79 265.41 194.96 C 265.31 193.33 265.16 191.69 265.30 190.05 C 266.06 183.37 264.75 176.70 264.47 170.03 C 262.60 142.68 259.52 115.36 253.80 88.53 C 252.34 83.09 251.32 77.02 247.21 72.86 C 246.23 72.03 244.94 70.54 243.56 71.46 Z" />
                         <path fill="#000000" opacity="1.00" d=" M 161.33 66.92 C 164.23 65.81 167.17 64.76 170.16 63.88 C 171.12 73.78 173.24 83.53 174.35 93.41 C 176.65 113.81 178.84 134.27 178.85 154.83 C 179.90 171.56 179.11 188.32 178.02 205.02 C 177.01 222.68 176.04 240.35 174.71 257.99 C 174.05 282.31 172.25 306.67 173.82 330.99 C 174.90 342.62 174.54 354.39 176.57 365.93 C 177.86 372.29 178.83 378.84 181.83 384.69 C 184.93 384.12 188.02 383.44 191.18 383.28 C 205.79 382.69 220.39 383.88 235.00 383.66 C 246.67 383.35 258.30 384.81 269.97 384.57 C 285.05 384.48 300.08 383.22 315.11 382.24 C 318.58 382.06 322.06 381.04 325.53 381.56 C 330.75 383.41 335.52 386.33 340.72 388.26 C 325.28 390.76 309.68 392.11 294.05 392.74 C 278.07 394.11 261.99 394.04 246.00 392.88 C 237.42 392.61 228.83 392.96 220.25 392.71 C 210.17 392.58 200.05 391.60 189.98 392.61 C 185.66 393.02 181.49 394.88 177.12 394.57 C 173.45 393.69 173.46 389.43 172.56 386.53 C 168.02 375.08 166.53 362.71 165.74 350.51 C 165.21 337.67 164.15 324.88 163.89 312.03 C 164.20 293.71 164.95 275.39 165.56 257.07 C 167.12 237.41 168.00 217.70 169.31 198.03 C 169.48 189.35 170.47 180.70 170.20 172.02 C 170.16 161.00 169.47 149.99 169.31 138.97 C 168.78 129.24 167.76 119.55 166.99 109.83 C 166.87 111.61 166.80 113.40 166.50 115.16 C 165.92 112.81 166.67 110.44 166.63 108.08 C 165.79 94.25 162.89 80.66 161.33 66.92 Z" />
@@ -136,11 +177,12 @@
             
 
             <div class="content-background" id="content-background2">
-                    <div class="signature-image signature-image-desktop">
-                        <svg viewBox="0 0 800 450" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                            <use class="logo-container" href="#000000ff"></use>
-                        </svg>  
-                    </div>
+
+                <div class="signature-image signature-image-desktop">
+                    <svg viewBox="0 0 800 450" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <use class="logo-container" href="#000000ff"></use>
+                    </svg>  
+                </div>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -148,6 +190,7 @@
                 <div></div>
                 <div></div>
                 <div></div>
+
             </div>
             <div class="content-images">
                 <div id="js-image-1"></div>

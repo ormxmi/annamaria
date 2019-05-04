@@ -1,10 +1,9 @@
-let loadingDivs = document.getElementsByClassName("loading-div");
 setTimeout(()=>{
-    loadingDivs[0].outerHTML = "";
-    loadingDivs[0].outerHTML = "";
+    document.getElementsByClassName("loading-div")[0].style.display = "none";
+    document.getElementsByClassName("loading-div-2")[0].style.display = "none";
 
     
-},5800)
+},6500)
 setTimeout(()=>{
     document.getElementsByTagName("NAV")[0].style.transform = "translateY(100%)"; 
     document.getElementsByTagName("NAV")[0].style.opacity = "1"; 
@@ -28,7 +27,7 @@ let contentBackground = $('.content-background')[0];
 let contentCarousel = $('.content-images')[0];
 let transformYBackground = 0;
 let transformYCarousel = 0;
-let notTransforming = true;
+let notTransforming = true; 
 let timeOut,timeOut2, timeOutDesktopMenuOpacity = false;
 let imagesTransform = [0,0,0,0,0,0,0,0,0];
 let carouselHeight = contentCarousel.clientHeight;
@@ -44,15 +43,20 @@ $(document).ready(function(){
         if(e.originalEvent.wheelDelta > 0) {
             if(transformYBackground <= -25) transformYBackground+=25;
             if(transformYCarousel <= -50) transformYCarousel+=50;
-            document.getElementsByClassName("signature-image")[0].style.opacity = "0";
-            document.getElementsByClassName("content-menu-container")[0].style.opacity = "0";
+            if(!openedDesktopMenu){
+                document.getElementsByClassName("signature-image")[0].style.opacity = "0";
+                document.getElementsByClassName("content-menu-container")[0].style.opacity = "0";
+            }
+            
         }
         else{
             if( Math.abs(transformYCarousel) <= carouselHeight - windowHeight + 55 ){
                 transformYBackground-=25;
                 transformYCarousel-=50;
-                document.getElementsByClassName("signature-image")[0].style.opacity = "0";
-                document.getElementsByClassName("content-menu-container")[0].style.opacity = "0";
+                if(!openedDesktopMenu){
+                    document.getElementsByClassName("signature-image")[0].style.opacity = "0";
+                    document.getElementsByClassName("content-menu-container")[0].style.opacity = "0";
+                }
             }
             
         }
@@ -76,7 +80,7 @@ setInterval(()=>{ //desktop images carousel animation smoother
     contentBackground.style.transform = "translateY("+transformYBackground+"px)";
     contentCarousel.style.transform = "translate(-50%, "+transformYCarousel+"px)";
     document.getElementsByClassName("signature-image-desktop")[0].style.transform = "translate("+Math.abs(transformYBackground/12)+"px ,"+Math.abs(transformYBackground/2)+"px)";
-    if(!timeOutDesktopMenuOpacity){
+    if(!timeOutDesktopMenuOpacity && !openedDesktopMenu){
         document.getElementsByClassName("signature-image")[0].style.opacity = "1";
         document.getElementsByClassName("content-menu-container")[0].style.opacity = "1";
     }
@@ -148,6 +152,7 @@ document.getElementById("js-home-return-to-menu").onclick = function() { // clos
 document.getElementById("js-content-menu-button-hover").onclick = function(){ // click the menu button in desktop viewport
     let el1 = document.getElementById("js-desktop-menu-back-btn");
     let el2 = document.getElementById("js-desktop-menu-menu-btn");
+    document.getElementsByClassName("content-menu-about-outer")[0].style.display = "block";
     if(!openedDesktopMenu){
         openedDesktopMenu = true;
         document.getElementsByClassName("content-menu-desktop")[0].style.transform = "rotate(0deg)";
@@ -162,11 +167,11 @@ document.getElementById("js-content-menu-button-hover").onclick = function(){ //
         document.getElementsByClassName("content-background")[0].style.opacity = "";
         document.getElementsByClassName("content-images")[0].style.opacity = "";
         document.getElementById("js-menu-desktop-inner").style.opacity = "0";
+        document.getElementsByClassName("content-menu-about-outer")[0].style.display = "none";
         fadeInLetters(el1, el2, "up");
     }
     
 }
-
 function fadeInLetters(el1, el2, dir) {
     if(dir == "down") {
         for(let i = 0; i < el1.children.length; i++){
@@ -180,4 +185,49 @@ function fadeInLetters(el1, el2, dir) {
             el2.children[i].style = "transform: translateY(); opacity: 1;"
         }
     }
+}
+document.getElementsByClassName("menu-dekstop-button-outer")[0].onclick = function() { // click the about menu desktop
+    //document.getElementsByClassName("content-menu-desktop")[0].style.backgroundColor = "#1F2041";
+    document.getElementsByClassName("signature-image")[0].style.filter = "invert(1)";
+    document.getElementsByClassName("content-menu-container")[0].style.opacity = "0";
+    document.getElementsByClassName("content-menu-about-outer")[0].style.transform = "translateX(100%)";
+    document.getElementsByClassName("content-menu-about-outer")[0].style.opacity = "1";
+    document.getElementsByClassName("content-menu-contact-outer")[0].style.transform = "";
+    document.getElementsByClassName("content-menu-inner")[0].style.display = "block";
+    setTimeout(()=>{
+        document.getElementsByClassName("content-menu-container")[0].style.display = "none";
+    },500)
+}
+document.getElementsByClassName("menu-dekstop-button-outer")[1].onclick = function() { // click the contact menu desktop
+    //document.getElementsByClassName("content-menu-desktop")[0].style.backgroundColor = "#92B7D1";
+    document.getElementsByClassName("signature-image")[0].style.filter = "invert(1)";
+    document.getElementsByClassName("content-menu-container")[0].style.opacity = "0";
+    document.getElementsByClassName("content-menu-contact-outer")[0].style.transform = "translateX(-100%)";
+    document.getElementsByClassName("content-menu-contact-outer")[0].style.opacity = "1";
+    document.getElementsByClassName("content-menu-about-outer")[0].style.transform = "";
+
+
+    setTimeout(()=>{
+        document.getElementsByClassName("content-menu-container")[0].style.display = "none";
+    },500)
+}
+document.getElementsByClassName("return-menu-outer")[0].onclick = function() { // click the back arrow in "about" menu
+    document.getElementsByClassName("signature-image")[0].style.filter = "";
+    document.getElementsByClassName("content-menu-about-outer")[0].style.transform = "";
+    document.getElementsByClassName("content-menu-about-outer")[0].style.opacity = "0";
+    document.getElementsByClassName("content-menu-container")[0].style.display = "block";
+    setTimeout(()=>{
+        document.getElementsByClassName("content-menu-container")[0].style.opacity = "1";
+    },20)
+}
+document.getElementsByClassName("return-menu-outer")[1].onclick = function() { // click the back arrow in "contact" menu
+    document.getElementsByClassName("signature-image")[0].style.filter = "";
+    document.getElementsByClassName("content-menu-contact-outer")[0].style.transform = "";
+    document.getElementsByClassName("content-menu-container")[0].style.display = "block";
+    document.getElementsByClassName("content-menu-contact-outer")[0].style.opacity = "0";
+
+    setTimeout(()=>{
+        document.getElementsByClassName("content-menu-container")[0].style.opacity = "1";
+    },20)
+
 }
